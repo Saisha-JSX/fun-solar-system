@@ -1,0 +1,113 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(ellipse at center, #000010 0%, #000000 100%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.solar-system {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Sun */
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+  background: radial-gradient(circle, #ffdd00, #ff9900);
+  border-radius: 50%;
+  box-shadow: 0 0 60px 30px #ffbb22;
+  filter: drop-shadow(0 0 15px #ffdd00);
+  z-index: 10;
+}
+
+/* Orbits */
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform-origin: center center;
+}
+
+.orbit1 {
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  margin-top: -100px;
+}
+
+.orbit2 {
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -150px;
+}
+
+.orbit3 {
+  width: 450px;
+  height: 450px;
+  margin-left: -225px;
+  margin-top: -225px;
+}
+
+.orbit4 {
+  width: 600px;
+  height: 600px;
+  margin-left: -300px;
+  margin-top: -300px;
+}
+
+/* Planets */
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.planet1 {
+  width: 24px;
+  height: 24px;
+  background: #3498db; /* Blue-ish */
+}
+
+.planet2 {
+  width: 30px;
+  height: 30px;
+  background: #e67e22; /* Orange-ish */
+}
+
+.planet3 {
+  width: 42px;
+  height: 42px;
+  background: #2ecc71; /* Green-ish */
+}
+
+.planet4 {
+  width: 36px;
+  height: 36px;
+  background: #9b59b6; /* Purple-ish */
+}
