@@ -85,3 +85,48 @@ function animateStars() {
   requestAnimationFrame(animateStars);
 }
 animateStars();
+
+// =======================
+// ZOOM & DRAG LOGIC
+// =======================
+
+const universe = document.querySelector('.universe');
+let scale = 1;
+let isDragging = false;
+let startX, startY;
+let offsetX = 0;
+let offsetY = 0;
+
+universe.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startX = e.clientX - offsetX;
+  startY = e.clientY - offsetY;
+});
+
+window.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+
+window.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  offsetX = e.clientX - startX;
+  offsetY = e.clientY - startY;
+  updateTransform();
+});
+
+// Zoom with scroll
+window.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const zoomFactor = 0.1;
+  const direction = e.deltaY > 0 ? -1 : 1;
+  const newScale = scale + direction * zoomFactor;
+
+  // Clamp zoom level
+  scale = Math.min(Math.max(newScale, 0.2), 5);
+
+  updateTransform();
+}, { passive: false });
+
+function updateTransform() {
+  universe.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+}
